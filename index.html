@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile version 02</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="startMenu" class="overlay">
+        <div class="menu-content">
+            <img src="pikus_adventure_title.png" alt="Piku's Adventure" class="game-logo">
+
+            <div class="button-container">
+                <button id="playBtn" class="menu-btn">PLAY</button>
+                <button id="howToBtn" class="menu-btn secondary" onclick="openHowTo()">HOW TO PLAY</button>
+            </div>
+            <p class="high-score-display">TOP SCORE: <span id="menuMaxScore">0</span></p>
+            <button onclick="clearHighScore()" class="reset-btn">RESET RECORD</button>
+        </div>
+    </div>
+
+    <div id="howToMenu" class="overlay"  style="display: none;">
+        <div class="menu-content instructions">
+            <h1>HOW TO PLAY</h1>
+            <div class="instruction-box">
+                <p><strong>SPACE:</strong> Jump</p>
+                <p><strong>ARROW →:</strong> Move forward</p>
+                <p><strong>ARROW ←:</strong> Move backward</p>
+                <p><strong>LIVES:</strong> You have 3 hearts. Don't lose them!</p>
+                <p><strong>GOAL:</strong> Dodge enemies and beat the Top Score!</p>
+                <!---<p><strong>Developer's Note:</strong> Always remember, if Piku keeps hitting enemies, it's not a "bug" -- it's just Piku giving the enemies a very agressive, full-body hug. Maybe he's just lonely?😜</p>-->
+            </div>
+            <button class="menu-btn secondary" onclick="closeHowTo()">BACK</button>
+        </div>
+    </div>
+
+    <div id="loadingScreen" class="overlay" style="display: none;">
+        <div class="menu-content">
+            <p class="devName">Developed by BIKRAMJIT ROY</p>
+            <h1 class="loading-text">LOADING...</h1>
+            <div class="progress-bar-container">
+                <div id="progressBar"></div>
+            </div>
+            <p class="startInfo">Please rotate your mobile</p>
+        </div>
+    </div>
+
+    <div id="game-container">
+
+
+        <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+        <div id="coinDisplay">
+            <div>
+                <img src="goldCoin_24x28_02.png" class="coinImg"> <span id="goldCount">x0</span>
+            </div>
+            <div>
+                <img src="silverCoin_24x28_02.png"  class="coinImg"> <span id="silverCount">x0</span>
+            </div>
+            <div>
+                <img src="copperCoin_24x28_02.png" class="coinImg"> <span id="copperCount">x0</span>
+            </div>
+        </div>
+
+        <!---------FOR MOBILE CONTROL--------->
+        <div id="mobileControls">
+            <button id="jumpBtn" class="touch-btn">JUMP</button>
+            <div class="move-btns">
+                <button id="leftBtn" class="touch-btn">🔺</button>
+                <button id="rightBtn" class="touch-btn">🔻</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    <div id="victoryMenu">
+        <h1>YOU WON!</h1>
+        <h3 id="finalScore">Score: 0</h3>
+        <button onclick="resetFreshGame()">BACK TO HOME?</button>
+    </div>
+
+    <div id="gameOverMenu">
+        <h1 style="color: #ff4d4d;">GAME OVER</h1>
+        <p>Better luck next time!</p>
+        <button onclick="resetFreshGame()">TRY AGAIN</button>
+    </div>
+
+    <div id="startText" class="game-text">LET'S GO!</div>
+
+    <div id="newRecordText" class="record-ui">NEW HIGH SCORE!</div>
+
+
+
+
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
